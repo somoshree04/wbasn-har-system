@@ -1,48 +1,61 @@
-# Wireless Body Area Sensor Network Based Human Activity Recognition System
+# Wireless Body Area Sensor Network (WBASN) 
+## Human Activity Recognition & Physiological Monitoring System
 
-## 📝 Project Description
-This project aims to design and implement a **Wireless Body Area Sensor Network (WBASN)** for monitoring physiological and motion-related signals from the human body. The collected data is used to recognize and classify different human activities using sensor fusion. 
+### 📝 Project Overview
+This project focuses on the design and implementation of a **Wireless Body Area Sensor Network (WBASN)** for the continuous monitoring of physiological and motion-related signals. By leveraging sensor fusion, the system recognizes and classifies human activities in real-time.
 
-The system integrates multiple biomedical and motion sensors connected to a microcontroller, which transmits data to a processing unit for real-time analysis and activity recognition.
-
----
-
-## 🛠️ Hardware Stack
-### Sensors Integrated:
-*   **MPU-9250:** 9-axis motion sensor (Accelerometer, Gyroscope, Magnetometer).
-*   **MAX-30102:** Pulse oximeter for Heart Rate and SpO₂ monitoring.
-*   **MLX-90614:** Contactless Infrared temperature sensor.
-*   **AD8232:** ECG sensor module for heart electrical activity monitoring.
-
-### Processing Units:
-*   **Arduino Uno:** Primary interface for sensor data acquisition and testing.
-*   **Raspberry Pi:** Planned for data aggregation, storage, and advanced processing.
+The architecture follows a robust **Edge-to-Hub** data pipeline:
+* **Edge Node:** Raspberry Pi Pico W / Arduino Nano for real-time data acquisition from body-worn sensors.
+* **Central Hub:** Raspberry Pi 4 Model B acting as a dedicated gateway running a **Node.js** server and **MongoDB** for data aggregation, storage, and visualization.
 
 ---
 
-## 📈 Work Completed So Far
-- [x] Configured **Arduino IDE** development environment.
-- [x] Installed and tested required libraries for all sensors.
-- [x] Verified successful compilation and execution of example programs for MPU9250, MAX30102, and MLX90614.
-- [x] Prepared the software environment for multi-sensor integration.
+### 🛠️ Hardware Stack
+
+#### **Biomedical & Motion Sensors**
+* **MPU-9250:** 9-Axis IMU (Accelerometer, Gyroscope, Magnetometer) for gait and motion analysis.
+* **MAX-30102:** High-sensitivity Pulse Oximeter for Heart Rate and $SpO_2$ monitoring.
+* **MLX-90614:** Contactless Infrared sensor for continuous body temperature tracking.
+* **AD8232:** Single-lead heart rate monitor for ECG signal acquisition.
+
+#### **Processing & Connectivity**
+* **Microcontrollers:** Raspberry Pi Pico W (Dual-core ARM Cortex M0+) & Arduino Nano.
+* **Microcomputer:** Raspberry Pi 4 Model B (Data Logger & Analytics Server).
+* **Communication:** I2C Protocol for sensor bus; Wi-Fi (HTTP/WebSockets) for wireless transmission to the hub.
 
 ---
 
-## 🚀 Planned Workflow
-1.  **Individual Testing:** Verify each sensor independently with the Arduino Uno.
-2.  **Data Integration:** Combine code to collect simultaneous readings via I2C.
-3.  **Data Transmission:** Transfer live sensor data to Raspberry Pi.
-4.  **Dataset Creation:** Log signals for various human activities (walking, sitting, etc.).
-5.  **ML Implementation:** Apply Machine Learning models for automated activity recognition.
+### 📈 Development Progress
+
+- [x] **Environment Setup:** Configured Arduino IDE and MicroPython (Thonny) development environments.
+- [x] **Library Validation:** Successfully installed and verified drivers for MPU9250, MAX30102, and MLX90614.
+- [x] **Component Testing:** Validated individual sensor logic and data output on Arduino Nano.
+- [ ] **Multi-Sensor Fusion:** Consolidating I2C data streams into a unified packet structure for transmission.
+- [ ] **Wireless Pipeline:** Establishing Wi-Fi data streaming from Pico W to the Pi 4 Local Server.
 
 ---
 
-## 🚦 Current Status
-**Software Setup:** 🟢 Completed  
-**Hardware Testing:** 🟡 In Progress (Initial testing with available components).
+### 🚀 Research & ML Workflow
+
+1.  **Data Acquisition:** Simultaneous sampling of ECG, $SpO_2$, and 9-axis motion data at calibrated intervals.
+2.  **Edge Transmission:** Wireless streaming of raw data packets to a **Node.js/MongoDB** backend.
+3.  **Dataset Preparation:** Logging and labeling data for various activities (e.g., Walking, Sitting, Climbing).
+4.  **Signal Processing:** Feature extraction, filtering, and noise reduction of raw physiological signals.
+5.  **ML Implementation:** Classification using **Random Forest** and **Bi-directional LSTM (BiLSTM)** architectures for automated activity recognition.
 
 ---
-*Created by [somoshree04](https://github.com)*
+
+### 🚦 Project Status
+* **Software Layer:** 🟢 Stable
+* **Hardware Integration:** 🟡 In Progress (Transitioning to Pico W Edge Node)
+* **Data Analysis:** ⚪ Pending
+
+---
+
+**Maintainer:** [somoshree04](https://github.com/somoshree04)  
+**Affiliation:** RCC Institute of Information Technology  
+**Event:** Prepared for UEMGREEN 2026 Conference
+
 
 
 
